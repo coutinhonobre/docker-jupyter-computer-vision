@@ -18,19 +18,37 @@ git clone https://github.com/your_username/your_repository.git
 cd your_repository
 ```
 
-2. Build the Docker image and start the container using Docker Compose.
+2. Generate a Jupyter Notebook token.
+
+For security reasons, Jupyter Notebook requires a token for authentication when accessed from a web browser. You can generate a token using Python's built-in `secrets` module:
+
+```bash
+python3 -c "import secrets; print(secrets.token_hex(32))"
+```
+
+This command will output a secure 64-character hexadecimal token. Copy this token as you will need it in the next step.
+
+3. Configure the Jupyter Notebook token.
+
+In the `docker-compose.yml` file, you will find the `environment` section for the `jupyter` service. Add the following line to set the `JUPYTER_TOKEN` environment variable:
+
+```yaml
+environment:
+  - JUPYTER_TOKEN=your_token_here
+```
+
+Replace `your_token_here` with the token you generated in step 2.
+
+4. Build and run the Docker container.
 
 ```bash
 docker-compose up
 ```
 
-This command builds a Docker image based on the provided Dockerfile and starts a container from that image. The image contains a preconfigured environment with Jupyter Notebook, a popular tool for interactive development of computer vision code.
+This command builds a Docker image based on the provided Dockerfile and starts a container from that image. The image contains a preconfigured environment with Jupyter Notebook, tailored for computer vision projects.
 
-In addition, the command maps the local folder `/Users/myuser/Projects/computer_vision` to the directory `/home/jovyan/work` within the container. This allows you to work on your computer vision notebooks on your local system while still running them within the isolated container environment.
+5. Access the Jupyter Notebook.
 
-3. Access the computer vision development environment.
+After starting the container, you can access the Jupyter Notebook by navigating to `http://localhost:8888` in your web browser. When prompted for authentication, enter the token you generated earlier.
 
-After starting the container, you can access the computer vision development environment by navigating to `localhost:8888` in your web browser. Here, you can create, edit, and run Jupyter notebooks, which are saved to the `/Users/myuser/Projects/computer_vision` folder on your local system due to volume mapping.
-
-Please replace "myuser" with your actual username on macOS.
-# docker-jupyter-computer-vision
+Please note that the Jupyter Notebook token is a security measure to prevent unauthorized access. Make sure to keep your token secure and do not share it publicly.

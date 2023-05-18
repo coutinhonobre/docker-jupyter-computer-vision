@@ -1,10 +1,17 @@
-version: '3'
+version: '3.7'
+
 services:
   jupyter:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: jupyter/base-notebook:latest
     ports:
       - 8888:8888
     volumes:
       - /Users/coutinhonobre/Projects/computer_vision:/home/jovyan/work
+    environment:
+      - JUPYTER_TOKEN=${JUPYTER_TOKEN}
+      - JUPYTER_PASSWORD=${JUPYTER_PASSWORD}
+      - JUPYTER_NOTEBOOK_DIR=/home/jovyan/work
+      - NB_UID=1000
+      - NB_GID=100
+      - GRANT_SUDO=yes
+    user: root
