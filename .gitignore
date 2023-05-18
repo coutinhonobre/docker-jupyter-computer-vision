@@ -1,0 +1,51 @@
+# Log files
+logs/
+*.log
+
+# Temporary files
+*.tmp
+
+# .ipynb_checkpoints directory created by Jupyter Notebook
+.ipynb_checkpoints/
+
+# __pycache__ directory created by Python
+__pycache__/
+
+# .pyc files created by Python
+*.pyc
+
+# .pyo files created by Python
+*.pyo
+
+# .pyd files created by Python
+*.pyd
+
+# .so files created by Python (shared libraries)
+*.so
+
+# .egg files created by Python
+*.egg
+
+# .egg-info files created by Python
+*.egg-info/
+
+# .eggs files created by Python
+.eggs/
+
+# dist files created by Python
+dist/
+
+# build files created by Python
+build/
+
+# env folder created by Python for virtual environments
+env/
+
+# venv folder created by Python for virtual environments
+venv/
+
+# Docker image files
+*.tar
+
+# .DS_Store files created by macOS
+.DS_Store
