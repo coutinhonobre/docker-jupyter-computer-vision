@@ -52,6 +52,6 @@ After starting the container, you can access the Jupyter Notebook by navigating 
 6. Install docker linux base Debian
 
 ```bash
-chmod +x install_docker.sh && 
+chmod +x install_docker.sh && ./install_docker
 ```
 ---
