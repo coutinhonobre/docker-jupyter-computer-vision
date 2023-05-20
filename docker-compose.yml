@@ -1,12 +1,12 @@
-version: '3.7'
-
+version: '3'
 services:
-  jupyter:
-    image: jupyter/base-notebook:latest
+  opencv:
+    build: .
     ports:
-      - 8888:8888
+      - "8888:8888"
     volumes:
-      - /Users/coutinhonobre/Projects/computer_vision:/home/jovyan/work
+      - /Users/coutinhonobre/Projects/computer_vision:/app
+    command: ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--NotebookApp.token=''"]
     environment:
       - JUPYTER_TOKEN=${JUPYTER_TOKEN}
       - JUPYTER_PASSWORD=${JUPYTER_PASSWORD}

@@ -49,3 +49,5 @@ venv/
 
 # .DS_Store files created by macOS
 .DS_Store
+
+.keys

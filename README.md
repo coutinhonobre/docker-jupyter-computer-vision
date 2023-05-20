@@ -1,7 +1,5 @@
-
 ---
-
-# Computer Vision Project with Jupyter Notebook
+chmod +x install_docker.sh# Computer Vision Project with Jupyter Notebook
 
 This repository contains the necessary files and settings to set up a computer vision development environment using Jupyter Notebook within a Docker container.
 
@@ -51,4 +49,9 @@ This command builds a Docker image based on the provided Dockerfile and starts a
 
 After starting the container, you can access the Jupyter Notebook by navigating to `http://localhost:8888` in your web browser. When prompted for authentication, enter the token you generated earlier.
 
-Please note that the Jupyter Notebook token is a security measure to prevent unauthorized access. Make sure to keep your token secure and do not share it publicly.
+6. Install docker linux base Debian
+
+```bash
+chmod +x install_docker.sh && 
+```
+---
